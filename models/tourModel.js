@@ -144,11 +144,20 @@ tourSchema.pre('save', function (next) {
 // });
 
 // QUERY MIDDLEWARE : quand on fait un query oû il y find
-//c'est du regex
+//c'est du regex (tout query qui commence par find: find, findById, findOne, ...)
 tourSchema.pre(/^find/, function (next) {
   this.find({ secretTour: { $ne: true } });
 
   this.start = Date.now();
+  next();
+});
+
+tourSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'guides',
+    select: '-__v -passwordChangedAt'
+  });
+
   next();
 });
 
