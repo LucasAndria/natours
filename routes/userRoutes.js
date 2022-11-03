@@ -10,15 +10,17 @@ router.post('/login', authController.login);
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
 
-router.patch(
-  '/updateMyPassword',
-  authController.protect,
-  authController.updatePassword
-);
+// Middleware pour recuperer les infos de l'user connecté
+// Protect all route after this middleware
+router.use(authController.protect);
 
-router.get('/me', authController.protect, userController.getMe);
-router.patch('/updateMe', authController.protect, userController.updateMe);
-router.delete('/deleteMe', authController.protect, userController.deleteMe);
+router.patch('/updateMyPassword', authController.updatePassword);
+router.get('/me', userController.getMe);
+router.patch('/updateMe', userController.updateMe);
+router.delete('/deleteMe', userController.deleteMe);
+
+// Restrict all route to the admin
+router.use(authController.restrictTo('admin'));
 
 router
   .route('/')
