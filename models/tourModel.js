@@ -115,6 +115,10 @@ const tourSchema = new mongoose.Schema(
   }
 );
 
+// Indexisation
+tourSchema.index({ price: 1, ratingsAverage: -1 });
+tourSchema.index({ slug: 1 });
+
 // Virtual, pour que ce field soit présent dans les res mais pas dans la bdd
 tourSchema.virtual('durationWeeks').get(function () {
   return this.duration / 7;
