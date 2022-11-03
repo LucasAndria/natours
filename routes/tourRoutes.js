@@ -1,10 +1,29 @@
 const express = require('express');
 const tourController = require('../controllers/tourController');
 const authController = require('../controllers/authController');
+const reviewRouter = require('./reviewRoutes');
 
 const router = express.Router();
 
 // router.param('id', tourController.checkID);
+
+// ################################ Mounting a router #################
+// POST /tour/26555dzfze4/reviews
+// GET /tour/26555dzfze4/reviews
+// GET /tour/26555dzfze4/reviews/8s8a8fzfr
+
+// router
+//   .route('/:tourId/reviews')
+//   .post(
+//     authController.protect,
+//     authController.restrictTo('user'),
+//     reviewController.createReview
+//   );
+
+// Le code si dessus contient le reviewController alors que l'on est dans le tour Route (à éviter)
+
+router.use('/:tourId/reviews', reviewRouter);
+// #######################################################################
 
 router
   .route('/top-5-cheap')
