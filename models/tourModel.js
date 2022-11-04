@@ -120,6 +120,7 @@ const tourSchema = new mongoose.Schema(
 // Indexisation
 tourSchema.index({ price: 1, ratingsAverage: -1 });
 tourSchema.index({ slug: 1 });
+tourSchema.index({ startLocation: '2dsphere' });
 
 // Virtual, pour que ce field soit présent dans les res mais pas dans la bdd
 tourSchema.virtual('durationWeeks').get(function () {
@@ -182,7 +183,9 @@ tourSchema.post(/^find/, function (docs, next) {
 
 // AGGREGATION MIDDLEWARE
 tourSchema.pre('aggregate', function (next) {
-  this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
+  // this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
+  // Should be unshift but then aggregation geoNear should be the first, so I placed it at the end
+  this.pipeline().push({ $match: { secretTour: { $ne: true } } });
 
   console.log(this.pipeline());
   next();
