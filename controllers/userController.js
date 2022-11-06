@@ -5,6 +5,7 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
 
+// Pour enregistrer les fichiers directement dans le disque
 // parametrage du destination, nom et extension du fichier
 // const multerStorage = multer.diskStorage({
 //   destination: (req, file, cb) => {
@@ -17,12 +18,13 @@ const factory = require('./handlerFactory');
 //   }
 // });
 
+// Pour enregistrer les fichiers dans le mémoire
 const multerStorage = multer.memoryStorage();
 
 // Filtrer les fichiers qui ne sont pas des images
 const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
-    db(null, true);
+    cb(null, true);
   } else {
     cb(new AppError('Not an image! Please upload only images.', 400), false);
   }

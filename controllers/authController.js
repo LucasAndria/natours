@@ -89,7 +89,6 @@ exports.protect = catchAsync(async (req, res, next) => {
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
   }
-  console.log('connected user token : ', token);
 
   if (!token) {
     return next(
