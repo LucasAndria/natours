@@ -6677,6 +6677,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.displayMap = void 0;
 var displayMap = function displayMap(locations) {
   // code here
+  console.log(locations);
 };
 exports.displayMap = displayMap;
 },{}],"../../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
@@ -12210,7 +12211,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54932" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53256" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
