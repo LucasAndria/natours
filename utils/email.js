@@ -20,6 +20,15 @@ module.exports = class Email {
           pass: process.env.SENDGRID_PASSWORD
         }
       });
+
+      // Gmail
+      // return nodemailer.createTransport({
+      //   service: 'Gmail',
+      //   auth: {
+      //     user: process.env.GMAIL_USERNAME,
+      //     pass: process.env.GMAIL_PASSWORD
+      //   }
+      // });
     }
 
     // 1) Create a transporter
@@ -61,6 +70,7 @@ module.exports = class Email {
   }
 
   async sendWelcome() {
+    // welcome.pug is the template
     await this.send('welcome', 'welcome to the natours Family!');
   }
 
