@@ -52,3 +52,30 @@ exports.getAccount = (req, res) => {
     title: 'Your account'
   });
 };
+
+exports.getBookingCheckout = catchAsync(async (req, res) => {
+  const tour = await Tour.findById(req.params.tourId).populate({
+    path: 'reviews',
+    fields: 'name summary imageCover price'
+  });
+
+  const session = {
+    customer_email: req.user.email,
+    tour_id: req.params.tourId,
+    items: [
+      {
+        name: `${tour.name} Tour`,
+        description: tour.summary,
+        images: tour.imageCover,
+        amount: tour.price,
+        currency: 'EN',
+        quantity: 1
+      }
+    ]
+  };
+
+  res.status(200).render('bookingCkeckout', {
+    title: 'Check out',
+    session
+  });
+});
