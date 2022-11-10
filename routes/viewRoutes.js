@@ -14,5 +14,6 @@ router.get(
   authController.protect,
   viewsController.getBookingCheckout
 );
+router.get('/my-tours', authController.protect, viewsController.getMyTours);
 
 module.exports = router;
