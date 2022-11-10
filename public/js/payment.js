@@ -10,7 +10,7 @@ exports.payTour = async (tour, user, price) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:8000/api/v1/bookings',
+      url: 'http://localhost:8000/api/v1/bookings/getBooking',
       data: {
         tour,
         user,
@@ -25,6 +25,6 @@ exports.payTour = async (tour, user, price) => {
       }, 1000);
     }
   } catch (err) {
-    showAlert('error', 'Error occured, Please reload the page!');
+    showAlert('error', 'Error occured, Try again later');
   }
 };

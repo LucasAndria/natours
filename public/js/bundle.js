@@ -12109,7 +12109,7 @@ exports.payTour = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:8000/api/v1/bookings',
+              url: 'http://localhost:8000/api/v1/bookings/getBooking',
               data: {
                 tour: tour,
                 user: user,
@@ -12129,7 +12129,7 @@ exports.payTour = /*#__PURE__*/function () {
           case 7:
             _context.prev = 7;
             _context.t0 = _context["catch"](0);
-            showAlert('error', 'Error occured, Please reload the page!');
+            showAlert('error', 'Error occured, Try again later');
           case 10:
           case "end":
             return _context.stop();
@@ -12415,7 +12415,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52878" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60520" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
