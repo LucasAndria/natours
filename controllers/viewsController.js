@@ -77,19 +77,17 @@ exports.getBookingCheckout = catchAsync(async (req, res) => {
   const session = {
     customer_email: req.user.email,
     tour_id: req.params.tourId,
-    items: [
-      {
-        name: `${tour.name} Tour`,
-        description: tour.summary,
-        images: tour.imageCover,
-        amount: tour.price,
-        currency: 'EN',
-        quantity: 1
-      }
-    ]
+    item: {
+      name: `${tour.name} Tour`,
+      description: tour.summary,
+      image: tour.imageCover,
+      amount: tour.price,
+      currency: 'EN',
+      quantity: 1
+    }
   };
 
-  res.status(200).render('bookingCkeckout', {
+  res.status(200).render('bookingCheckout/bookingCkeckout', {
     title: 'Check out',
     session
   });

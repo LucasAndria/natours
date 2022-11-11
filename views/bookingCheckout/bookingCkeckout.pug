@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title Natours | Checkout
+    script(src='/js/bundle.js' defer)
+
+    include _style
+
+  body
+   form.container.form_visa
+      .card
+         button.proceed#btnPay(data-tour=`${session.tour_id}`, data-user=`${user._id}`, data-price=`${session.item.amount}`)
+            div
+               img.send-icon(src=`/img/send-icon.png`)
+         img.logo-card(src=`/img/favicon.png`)
+         label Card number:
+         input.input.cardnumber#cardnumber(type='text' placeholder='1234 5678 9101 1121')
+         label Name:
+         input.input.name#name(placeholder='John doe')
+         label.toleft CCV:
+         input.input.toleft.ccv#ccv(placeholder='321')
+      .receipt
+         .col
+            p Cost:
+            h2.cost $#{session.item.amount}
+            br
+            p Email : 
+            h3.email= session.customer_email
+         .col
+            img.product_image(src=`/img/tours/${session.item.image}` alt=`${session.item.name}`)
+            br
+            h3.bought-items #{session.item.name}
+            p.bought-items.description #{session.item.description}
+         
+         p.comprobe .

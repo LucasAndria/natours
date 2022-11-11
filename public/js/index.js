@@ -10,7 +10,7 @@ const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
-const bookingCheckoutForm = document.querySelector('.form--booking-checkout');
+const visaForm = document.querySelector('.form_visa');
 const bookBtn = document.getElementById('book-tour');
 
 // DELEGATION
@@ -74,18 +74,45 @@ if (bookBtn) {
   });
 }
 
-if (bookingCheckoutForm) {
-  bookingCheckoutForm.addEventListener('submit', async (e) => {
+if (visaForm) {
+  const btnPay = document.getElementById('btnPay');
+  const cardNumber = document.getElementById('cardnumber');
+  const name = document.getElementById('name');
+  const ccv = document.getElementById('ccv');
+
+  cardNumber.addEventListener('click', (e) => {
+    e.target.classList.remove('error');
+  });
+
+  name.addEventListener('click', (e) => {
+    e.target.classList.remove('error');
+  });
+
+  ccv.addEventListener('click', (e) => {
+    e.target.classList.remove('error');
+  });
+
+  visaForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    document.getElementById('btnPay').textContent = '🎉✨';
+    cardNumber.classList.remove('error');
+    name.classList.remove('error');
+    ccv.classList.remove('error');
+
+    const cardNumberValue = cardNumber.value;
+    const nameValue = name.value;
+    const ccvValue = ccv.value;
+
+    if (!cardNumberValue) return cardNumber.classList.add('error');
+    if (!nameValue) return name.classList.add('error');
+    if (!ccvValue) return ccv.classList.add('error');
 
     // 1) Recup les elements du form
-    const tour = document.getElementById('btnPay').dataset.tour;
-    const user = document.getElementById('btnPay').dataset.user;
-    const price = document.getElementById('btnPay').dataset.price;
+    const tour = btnPay.dataset.tour;
+    const user = btnPay.dataset.user;
+    const price = btnPay.dataset.price;
 
     // 2) Procceder au payement
-    payTour(tour, user, price);
+    await payTour(tour, user, price);
   });
 }

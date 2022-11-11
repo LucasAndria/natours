@@ -22,7 +22,7 @@ exports.payTour = async (tour, user, price) => {
       showAlert('success', 'Tour purchassed successfuly!');
       window.setTimeout(() => {
         location.assign('/');
-      }, 1000);
+      }, 1500);
     }
   } catch (err) {
     showAlert('error', 'Error occured, Try again later');
