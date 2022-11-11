@@ -33,11 +33,11 @@ block content
                   each tour in tours 
                      .card
                         .card__header
-                           .card__picture
+                           .my_card__picture
                               .card__picture-overlay &nbsp;
                               img.card__picture-img(src=`/img/tours/${tour.imageCover}`, alt=`${tour.name}`)
-                           h4
+                           h5.my_heading-tertirary
                               span= tour.name
 
                         .card__footer
-                           a.btn.btn--green.btn--small(href=`/tour/${tour.slug}`) Details
+                           a.my_btn(href=`/tour/${tour.slug}`) Details

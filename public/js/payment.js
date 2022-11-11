@@ -6,7 +6,7 @@ exports.bookTour = (tourId) => {
   location.assign(`/checkout-booking/${tourId}`);
 };
 
-exports.payTour = async (tour, user, price) => {
+exports.payTour = async ({ tour, user, price }) => {
   try {
     const res = await axios({
       method: 'POST',

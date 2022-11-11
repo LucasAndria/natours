@@ -166,6 +166,26 @@ body {
   );
 }
 
+.my_heading-tertirary span {
+  color: rgba(180, 210, 176, 0.85);
+  padding: 0.8rem 1rem;
+  line-height: 0.8;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(rgba(125, 213, 111, 0.85)),
+    to(rgba(40, 180, 135, 0.85))
+  );
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(125, 213, 111, 0.85),
+    rgba(40, 180, 135, 0.85)
+  );
+}
+
 .heading-primary {
   font-size: 5rem;
   text-align: center;
@@ -175,6 +195,16 @@ body {
 
 .heading-tertirary {
   font-size: 2.75rem;
+  text-align: right;
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  width: 70%;
+  z-index: 10;
+}
+
+.my_heading-tertirary {
+  font-size: 1.5rem;
   text-align: right;
   position: absolute;
   bottom: 1rem;
@@ -251,6 +281,33 @@ body {
 
 .btn--green::after {
   background-color: #55c57a;
+}
+
+.my_btn {
+  background-color: #55c57a;
+  color: #fff;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-weight: 400;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /*Add later when we use this for the button in form*/
+  border: none;
+  cursor: pointer;
+}
+
+.my_btn:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
 .btn--small {
@@ -1111,6 +1168,7 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
 }
+
 .card__header {
   position: relative;
 }
@@ -1119,6 +1177,13 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
   clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
   height: 22rem;
+}
+.my_card__picture {
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
+  clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
+  height: 10rem;
+  width: 15rem;
 }
 .card__picture-overlay {
   position: absolute;

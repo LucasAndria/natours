@@ -12099,14 +12099,15 @@ exports.bookTour = function (tourId) {
   location.assign("/checkout-booking/".concat(tourId));
 };
 exports.payTour = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(tour, user, price) {
-    var res;
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
+    var tour, user, price, res;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            _context.next = 3;
+            tour = _ref.tour, user = _ref.user, price = _ref.price;
+            _context.prev = 1;
+            _context.next = 4;
             return (0, _axios.default)({
               method: 'POST',
               url: 'http://localhost:8000/api/v1/bookings/getBooking',
@@ -12116,7 +12117,7 @@ exports.payTour = /*#__PURE__*/function () {
                 price: price
               }
             });
-          case 3:
+          case 4:
             res = _context.sent;
             if (res.data.status === 'success') {
               showAlert('success', 'Tour booked successfuly!');
@@ -12124,21 +12125,21 @@ exports.payTour = /*#__PURE__*/function () {
                 location.assign('/');
               }, 1500);
             }
-            _context.next = 10;
+            _context.next = 11;
             break;
-          case 7:
-            _context.prev = 7;
-            _context.t0 = _context["catch"](0);
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context["catch"](1);
             showAlert('error', 'Error occured, Try again later');
-          case 10:
+          case 11:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[1, 8]]);
   }));
-  return function (_x, _x2, _x3) {
-    return _ref.apply(this, arguments);
+  return function (_x) {
+    return _ref2.apply(this, arguments);
   };
 }();
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"signup.js":[function(require,module,exports) {
@@ -12481,12 +12482,8 @@ if (bookBtn) {
 if (visaForm) {
   var btnPay = document.getElementById('btnPay');
   var cardNumber = document.getElementById('cardnumber');
-  var name = document.getElementById('name');
   var ccv = document.getElementById('ccv');
   cardNumber.addEventListener('click', function (e) {
-    e.target.classList.remove('error');
-  });
-  name.addEventListener('click', function (e) {
     e.target.classList.remove('error');
   });
   ccv.addEventListener('click', function (e) {
@@ -12494,43 +12491,35 @@ if (visaForm) {
   });
   visaForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(e) {
-      var cardNumberValue, nameValue, ccvValue, tour, user, price;
+      var cardNumberValue, ccvValue;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               e.preventDefault();
-              cardNumber.classList.remove('error');
-              name.classList.remove('error');
-              ccv.classList.remove('error');
               cardNumberValue = cardNumber.value;
-              nameValue = name.value;
               ccvValue = ccv.value;
-              if (cardNumberValue) {
-                _context3.next = 9;
+              if (parseInt(cardNumberValue)) {
+                _context3.next = 5;
                 break;
               }
               return _context3.abrupt("return", cardNumber.classList.add('error'));
-            case 9:
-              if (nameValue) {
-                _context3.next = 11;
-                break;
-              }
-              return _context3.abrupt("return", name.classList.add('error'));
-            case 11:
-              if (ccvValue) {
-                _context3.next = 13;
+            case 5:
+              if (parseInt(ccvValue)) {
+                _context3.next = 7;
                 break;
               }
               return _context3.abrupt("return", ccv.classList.add('error'));
-            case 13:
-              // 1) Recup les elements du form
-              tour = btnPay.dataset.tour;
-              user = btnPay.dataset.user;
-              price = btnPay.dataset.price; // 2) Procceder au payement
-              _context3.next = 18;
-              return (0, _payment.payTour)(tour, user, price);
-            case 18:
+            case 7:
+              console.log(parseInt(cardNumberValue));
+
+              // // 1) Recup les elements du form
+              // const {tour, user, price} = btnPay.dataset;
+
+              // 2) Procceder au payement
+              _context3.next = 10;
+              return (0, _payment.payTour)(btnPay.dataset);
+            case 10:
             case "end":
               return _context3.stop();
           }
@@ -12567,7 +12556,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49913" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58035" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

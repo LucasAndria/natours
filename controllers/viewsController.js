@@ -48,12 +48,18 @@ exports.getTour = catchAsync(async (req, res, next) => {
 });
 
 exports.getLoginForm = (req, res) => {
+  if (res.locals.user) {
+    return res.redirect(`${req.originalUrl.split('/')[0]}/`);
+  }
   res.status(200).render('login', {
     title: 'Log into your account'
   });
 };
 
 exports.getSignupForm = (req, res) => {
+  if (res.locals.user) {
+    return res.redirect(`${req.originalUrl.split('/')[0]}/`);
+  }
   res.status(200).render('signup', {
     title: 'Create an account'
   });

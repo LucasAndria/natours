@@ -113,14 +113,9 @@ if (bookBtn) {
 if (visaForm) {
   const btnPay = document.getElementById('btnPay');
   const cardNumber = document.getElementById('cardnumber');
-  const name = document.getElementById('name');
   const ccv = document.getElementById('ccv');
 
   cardNumber.addEventListener('click', (e) => {
-    e.target.classList.remove('error');
-  });
-
-  name.addEventListener('click', (e) => {
     e.target.classList.remove('error');
   });
 
@@ -131,24 +126,18 @@ if (visaForm) {
   visaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    cardNumber.classList.remove('error');
-    name.classList.remove('error');
-    ccv.classList.remove('error');
-
     const cardNumberValue = cardNumber.value;
-    const nameValue = name.value;
     const ccvValue = ccv.value;
 
-    if (!cardNumberValue) return cardNumber.classList.add('error');
-    if (!nameValue) return name.classList.add('error');
-    if (!ccvValue) return ccv.classList.add('error');
+    if (!parseInt(cardNumberValue)) return cardNumber.classList.add('error');
+    if (!parseInt(ccvValue)) return ccv.classList.add('error');
 
-    // 1) Recup les elements du form
-    const tour = btnPay.dataset.tour;
-    const user = btnPay.dataset.user;
-    const price = btnPay.dataset.price;
+    console.log(parseInt(cardNumberValue));
+
+    // // 1) Recup les elements du form
+    // const {tour, user, price} = btnPay.dataset;
 
     // 2) Procceder au payement
-    await payTour(tour, user, price);
+    await payTour(btnPay.dataset);
   });
 }
