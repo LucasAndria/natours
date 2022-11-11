@@ -234,6 +234,21 @@ body {
   background-color: #55c57a;
   color: #fff;
 }
+.btn--gray {
+  background-color: #3a443d;
+  color: #fff;
+}
+.btn--gray:hover {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0.15);
+  cursor: default;
+}
+.btn--gray:focus {
+  outline: none;
+  background-color: #3a443d;
+}
+
 .btn--green::after {
   background-color: #55c57a;
 }

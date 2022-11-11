@@ -19,7 +19,7 @@ exports.payTour = async (tour, user, price) => {
     });
 
     if (res.data.status === 'success') {
-      showAlert('success', 'Tour purchassed successfuly!');
+      showAlert('success', 'Tour booked successfuly!');
       window.setTimeout(() => {
         location.assign('/');
       }, 1500);

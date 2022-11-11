@@ -92,7 +92,7 @@ if (visaForm) {
     e.target.classList.remove('error');
   });
 
-  visaForm.addEventListener('submit', (e) => {
+  visaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     cardNumber.classList.remove('error');
