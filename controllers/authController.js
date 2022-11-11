@@ -48,11 +48,11 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordChangedAt: req.body.passwordChangedAt
   });
 
-  // Email envoyer à l'user
-  // créer le lien vers son compte pour le button dans l'email
-  const url = `${req.protocol}://${req.get('host')}/me`;
-  console.log(url);
-  await new Email(newUser, url).sendWelcome();
+  // // Email envoyer à l'user
+  // // créer le lien vers son compte pour le button dans l'email
+  // const url = `${req.protocol}://${req.get('host')}/me`;
+  // console.log(url);
+  // await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, res);
 });
