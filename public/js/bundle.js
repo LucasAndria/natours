@@ -6685,7 +6685,7 @@ var displayMap = function displayMap(locations) {
   //   zoom: 14 // starting zoom
   // });
   // map.addControl(new maplibregl.NavigationControl(), 'top-right');
-  console.log(locations);
+  // console.log(locations);
 };
 exports.displayMap = displayMap;
 },{}],"../../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {

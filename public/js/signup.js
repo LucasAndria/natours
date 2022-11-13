@@ -24,7 +24,7 @@ export const signup = async (name, email, password, passwordConfirm) => {
     if (err.response.data) {
       return err.response.data.message;
     } else {
-      console.log(err.message);
+      return err.message;
     }
   }
 };

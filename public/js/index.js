@@ -101,7 +101,6 @@ if (userPasswordForm) {
 }
 
 if (bookBtn) {
-  console.log('yessss');
   bookBtn.addEventListener('click', (e) => {
     e.target.textContent = 'Processing...';
     const { tourId } = e.target.dataset;
@@ -133,8 +132,6 @@ if (visaForm) {
 
     if (!parseInt(cardNumberValue)) return cardNumber.classList.add('error');
     if (!parseInt(ccvValue)) return ccv.classList.add('error');
-
-    console.log(parseInt(cardNumberValue));
 
     // // 1) Recup les elements du form
     // const {tour, user, price} = btnPay.dataset;

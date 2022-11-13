@@ -51,16 +51,16 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-userSchema.pre('save', async function (next) {
-  //stop the function if password was not modified
-  if (!this.isModified('password')) return next();
+// userSchema.pre('save', async function (next) {
+//   //stop the function if password was not modified
+//   if (!this.isModified('password')) return next();
 
-  //8 est faible, on peut faire 12 pour une hash plus robuste si on a plus de ressources
-  this.password = await bcrypt.hash(this.password, 8);
+//   //8 est faible, on peut faire 12 pour une hash plus robuste si on a plus de ressources
+//   this.password = await bcrypt.hash(this.password, 8);
 
-  //pour supprimer un champs
-  this.passwordConfirm = undefined;
-});
+//   //pour supprimer un champs
+//   this.passwordConfirm = undefined;
+// });
 
 userSchema.pre('save', function (next) {
   if (!this.isModified('password') || this.isNew) return next();
@@ -103,7 +103,7 @@ userSchema.methods.createPasswordResetToken = function () {
     .update(resetToken)
     .digest('hex');
 
-  console.log({ resetToken }, this.passwordResetToken);
+  // console.log({ resetToken }, this.passwordResetToken);
 
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 

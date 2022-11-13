@@ -8,5 +8,5 @@ export const displayMap = (locations) => {
   //   zoom: 14 // starting zoom
   // });
   // map.addControl(new maplibregl.NavigationControl(), 'top-right');
-  console.log(locations);
+  // console.log(locations);
 };
