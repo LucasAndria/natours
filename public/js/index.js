@@ -7,7 +7,6 @@ import { signup } from './signup';
 import { showAlert } from './alerts';
 
 // DOM ELEMENTS
-const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const signupForm = document.querySelector('.signup-form');
 const logOutBtn = document.querySelector('.nav__el--logout');
@@ -15,13 +14,6 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const visaForm = document.querySelector('.form_visa');
 const bookBtn = document.getElementById('book-tour');
-
-// DELEGATION
-if (mapBox) {
-  // const locations = JSON.parse(mapBox.dataset.locations);
-  const locations = 'NO';
-  displayMap(locations);
-}
 
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
