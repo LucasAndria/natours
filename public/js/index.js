@@ -15,7 +15,6 @@ const visaForm = document.querySelector('.form_visa');
 const bookBtn = document.getElementById('book-tour');
 
 if (loginForm) {
-  console.log('ok');
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
