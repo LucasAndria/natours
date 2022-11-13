@@ -63,9 +63,9 @@ block content
          .picture-box
             img.picture-box__img(src=`/img/tours/${img}`, alt=`The Park Camper Tour ${index + 1}`, class=`picture-box__img--${index + 1}`)
 
-   section.section-map
-      //- #map(data-locations=`${JSON.stringify(tour.locations)}`)
-      #map
+   //- section.section-map
+   //-    //- #map(data-locations=`${JSON.stringify(tour.locations)}`)
+   //-    #map
 
    section.section-reviews
       .reviews
@@ -87,7 +87,7 @@ block content
             
             if user
                if bookedAlready
-                  button.btn.btn--gray.span-all-rows Already have this
+                  button.btn.btn--gray.span-all-rows Already Booked!
                else
                   button.btn.btn--green.span-all-rows#book-tour(data-tour-id=`${tour.id}`) Book tour now!
             else

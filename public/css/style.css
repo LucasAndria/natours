@@ -167,7 +167,7 @@ body {
 }
 
 .my_heading-tertirary span {
-  color: rgba(180, 210, 176, 0.85);
+  color: rgb(255, 255, 255);
   padding: 0.8rem 1rem;
   line-height: 0.8;
   -webkit-box-decoration-break: clone;
@@ -208,7 +208,7 @@ body {
   text-align: right;
   position: absolute;
   bottom: 1rem;
-  right: 2rem;
+  right: 0.2rem;
   width: 70%;
   z-index: 10;
 }
@@ -283,11 +283,16 @@ body {
   background-color: #55c57a;
 }
 
+.my_date {
+  font-size: 1rem;
+  margin-left: -17px;
+}
+
 .my_btn {
   background-color: #55c57a;
   color: #fff;
-  font-size: 1rem;
-  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 10rem;
   text-transform: uppercase;
   display: inline-block;
@@ -1144,6 +1149,14 @@ body {
 
 .card-container {
   max-width: 120rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 7rem;
+}
+
+.my_card-container {
+  min-width: 50rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

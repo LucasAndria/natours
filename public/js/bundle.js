@@ -6677,18 +6677,14 @@ Object.defineProperty(exports, "__esModule", {
 exports.displayMap = void 0;
 var displayMap = function displayMap(locations) {
   // code here
-  var key = 'IwCekkGDGWBNaslxu9Cg';
-  var map = new maplibregl.Map({
-    container: 'map',
-    // container id
-    style: "https://api.maptiler.com/maps/streets-v2/style.json?key=".concat(key),
-    // style URL
-    center: [16.62662018, 49.2125578],
-    // starting position [lng, lat]
-    zoom: 14 // starting zoom
-  });
-
-  map.addControl(new maplibregl.NavigationControl(), 'top-right');
+  // const key = 'IwCekkGDGWBNaslxu9Cg';
+  // const map = new maplibregl.Map({
+  //   container: 'map', // container id
+  //   style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`, // style URL
+  //   center: [16.62662018, 49.2125578], // starting position [lng, lat]
+  //   zoom: 14 // starting zoom
+  // });
+  // map.addControl(new maplibregl.NavigationControl(), 'top-right');
   console.log(locations);
 };
 exports.displayMap = displayMap;
@@ -12484,6 +12480,7 @@ if (userPasswordForm) {
   }());
 }
 if (bookBtn) {
+  console.log('yessss');
   bookBtn.addEventListener('click', function (e) {
     e.target.textContent = 'Processing...';
     var tourId = e.target.dataset.tourId;
@@ -12569,7 +12566,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50628" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53077" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

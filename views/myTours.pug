@@ -29,7 +29,7 @@ block content
          .user-view__content
             .user-view__form-container
                h2.heading-secondary.ma-bt-md= `${tours.length ? 'Your Tours':'You have not yet booked a Tours'}`
-               .card-container
+               .my_card-container
                   each tour in tours 
                      .card
                         .card__header
@@ -40,4 +40,5 @@ block content
                               span= tour.name
 
                         .card__footer
-                           a.my_btn(href=`/tour/${tour.slug}`) Details
+                           span.my_date= tour.startDates[0].toLocaleString('en-us', {month: 'long', year: 'numeric'})
+                           a.my_btn(href=`/tour/${tour.slug}`) Show
