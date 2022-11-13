@@ -30,6 +30,12 @@ mongoose
 
 // 4) START SERVER
 const PORT = process.env.PORT || 8000;
+
+// If you want to define the domain
+// const server = app.listen(PORT, '127.0.0.1', () => {
+//   console.log(`App running on port ${PORT}`);
+// });
+
 const server = app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
 });
