@@ -10,7 +10,7 @@ exports.payTour = async ({ tour, user, price }) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'https://natours-lux.herokuapp.com/api/v1/bookings/getBooking',
+      url: '/api/v1/bookings/getBooking',
       data: {
         tour,
         user,
