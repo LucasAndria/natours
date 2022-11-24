@@ -13,10 +13,10 @@ process.on('uncaughtException', (err) => {
 
 const app = require('./app');
 
-//MongoDB local
+// // MongoDB local
 // const DB = process.env.DATABASE_LOCAL;
 
-// // MongoDB en ligne
+// MongoDB en ligne
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
   process.env.DATABASE_PASSWORD

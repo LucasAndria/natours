@@ -1,4 +1,6 @@
 import '@babel/polyfill';
+import 'leaflet';
+import { displayMap } from './leaflet';
 import { login, logout } from './login';
 import { updateSettings } from './updateSetting';
 import { bookTour, payTour } from './payment';
@@ -6,6 +8,7 @@ import { signup } from './signup';
 import { showAlert } from './alerts';
 
 // DOM ELEMENTS
+const map = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const signupForm = document.querySelector('.signup-form');
 const logOutBtn = document.querySelector('.nav__el--logout');
@@ -13,6 +16,12 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const visaForm = document.querySelector('.form_visa');
 const bookBtn = document.getElementById('book-tour');
+
+// DELEGATION
+if (map) {
+  const locations = JSON.parse(map.dataset.locations);
+  displayMap(locations);
+}
 
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
