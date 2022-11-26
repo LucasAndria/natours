@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // for developpment only
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -9,18 +9,18 @@ process.on('uncaughtException', (err) => {
 });
 
 // for developpment only
-// dotenv.config({ path: './config.env' });
+dotenv.config({ path: './config.env' });
 
 const app = require('./app');
 
-// // MongoDB local
-// const DB = process.env.DATABASE_LOCAL;
+// MongoDB local
+const DB = process.env.DATABASE_LOCAL;
 
-// MongoDB en ligne
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+// // MongoDB en ligne
+// const DB = process.env.DATABASE.replace(
+//   '<PASSWORD>',
+//   process.env.DATABASE_PASSWORD
+// );
 
 mongoose
   .connect(DB, {
