@@ -50,6 +50,7 @@
     "eslint-plugin-react": "^7.31.10",
     "morgan": "^1.10.0",
     "parcel-bundler": "^1.12.5",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "snowpack": "^3.8.8"
   }
 }
