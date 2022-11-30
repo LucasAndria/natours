@@ -72,7 +72,7 @@ module.exports = class Email {
 
   async sendWelcome() {
     // welcome.pug is the template
-    await this.send('welcome', 'welcome to the Mada tours Family!');
+    await this.send('welcome', 'welcome to the Tours Mada Family!');
   }
 
   async sendPasswordReset() {
