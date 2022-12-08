@@ -1,7 +1,5 @@
 const path = require('path');
-const express = require('express');
-// development only
-const morgan = require('morgan');
+const mongoose = require('mongoose');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -17,7 +15,19 @@ const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
 
-const app = express();
+/* setup connection to the database */
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
+
+mongoose
+  .connect(DB, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .then(() => console.log(`DB connection successful!`));
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -29,11 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Set security HTTP headers
 app.use(helmet());
-
-// Development console logging
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
 
 // Limit requests from same API
 const limiter = rateLimit({
@@ -80,5 +85,3 @@ app.all('*', (req, res, next) => {
 });
 
 app.use(globalErrorHandler);
-
-module.exports = app;
