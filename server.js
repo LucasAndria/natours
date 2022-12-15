@@ -5,7 +5,8 @@ const app = express();
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 'ok',
-    message: 'test123'
+    env: process.env.NODE_ENV,
+    message: process.env.EMAIL_USERNAME
   });
 });
 
