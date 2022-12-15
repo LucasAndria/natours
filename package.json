@@ -2,10 +2,8 @@
   "name": "tours",
   "version": "1.0.0",
   "description": "Learning node, express and mongoDB",
-  "main": "app.js",
-  "engines": {
-    "node": "14.x"
-  },
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "start:dev": "nodemon server.js",
