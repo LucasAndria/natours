@@ -35,7 +35,7 @@ block content
                         .card__header
                            .my_card__picture
                               .card__picture-overlay &nbsp;
-                              img.card__picture-img(src=`/img/tours/${tour.imageCover}`, alt=`${tour.name}`)
+                              img.card__picture-img(src=`${process.env.STATIC_FILE_SERVER}img/tours/${tour.imageCover}`, alt=`${tour.name}`)
                            h5.my_heading-tertirary
                               span= tour.name
 

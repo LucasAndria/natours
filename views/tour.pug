@@ -4,7 +4,7 @@ include _reviewCard
 mixin overviewBox(label, text, icon)
    .overview-box__detail
       svg.overview-box__icon
-         use(xlink:href=`/img/icons.svg#icon-${icon}`)
+         use(xlink:href=`${process.env.STATIC_FILE_SERVER}img/icons.svg#icon-${icon}`)
       span.overview-box__label= label
       span.overview-box__text= text
 
@@ -12,7 +12,7 @@ block content
    section.section-header
       .header__hero
          .header__hero-overlay &nbsp;
-         img.header__hero-img(src=`/img/tours/${tour.imageCover}`, alt=`${tour.name}`)
+         img.header__hero-img(src=`${process.env.STATIC_FILE_SERVER}img/tours/${tour.imageCover}`, alt=`${tour.name}`)
 
       .heading-box
          h1.heading-primary
@@ -20,11 +20,11 @@ block content
          .heading-box__group
             .heading-box__detail
                svg.heading-box__icon
-                  use(xlink:href='/img/icons.svg#icon-clock')
+                  use(xlink:href=`${process.env.STATIC_FILE_SERVER}img/icons.svg#icon-clock`)
                span.heading-box__text= `${tour.duration} days`
             .heading-box__detail
                svg.heading-box__icon
-                  use(xlink:href='/img/icons.svg#icon-map-pin')
+                  use(xlink:href=`${process.env.STATIC_FILE_SERVER}img/icons.svg#icon-map-pin`)
                span.heading-box__text= tour.startLocation.description
 
    section.section-description
@@ -42,7 +42,7 @@ block content
                h2.heading-secondary.ma-bt-lg Your tour guides
                each guide in tour.guides
                   .overview-box__detail
-                     img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
+                     img.overview-box__img(src=`${process.env.STATIC_FILE_SERVER}img/users/${guide.photo}`, alt=`${guide.name}`)
                      - if (guide.role === 'lead-guide')
                         span.overview-box__label Lead guide
                      - if (guide.role === 'guide')
@@ -58,7 +58,7 @@ block content
    section.section-pictures
       each img, index in tour.images
          .picture-box
-            img.picture-box__img(src=`/img/tours/${img}`, alt=`The Park Camper Tour ${index + 1}`, class=`picture-box__img--${index + 1}`)
+            img.picture-box__img(src=`${process.env.STATIC_FILE_SERVER}img/tours/${img}`, alt=`The Park Camper Tour ${index + 1}`, class=`picture-box__img--${index + 1}`)
 
    section.section-map
       #map(data-locations=`${JSON.stringify(tour.locations)}`)
@@ -71,9 +71,9 @@ block content
    section.section-cta
       .cta
          .cta__img.cta__img--logo
-            img(src='/img/logo-white.png', alt='Tours Mada logo')
-         img.cta__img.cta__img--1(src=`/img/tours/${tour.images[1]}`, alt='Tour picture')
-         img.cta__img.cta__img--2(src=`/img/tours/${tour.images[2]}`, alt='Tour picture')
+            img(src=`${process.env.STATIC_FILE_SERVER}img/logo-white.png`, alt='Tours Mada logo')
+         img.cta__img.cta__img--1(src=`${process.env.STATIC_FILE_SERVER}img/tours/${tour.images[1]}`, alt='Tour picture')
+         img.cta__img.cta__img--2(src=`${process.env.STATIC_FILE_SERVER}img/tours/${tour.images[2]}`, alt='Tour picture')
          .cta__content
             if bookedAlready
                h2.heading-secondary Save the date! 

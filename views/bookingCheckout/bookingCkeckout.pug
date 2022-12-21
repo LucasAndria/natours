@@ -4,7 +4,7 @@ html
     meta(name='viewport', content='width=device-width')
     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
     title Tours Mada | Checkout
-    script(src='/js/bundle.js' defer)
+    script(src=`${process.env.STATIC_FILE_SERVER}js/bundle.js` defer)
 
     include _style
 
@@ -13,8 +13,8 @@ html
       .card
          button.proceed#btnPay(data-tour=`${session.tour_id}`, data-user=`${user._id}`, data-price=`${session.item.amount}`)
             div
-               img.send-icon(src=`/img/send-icon.png`)
-         img.logo-card(src=`/img/favicon.png`)
+               img.send-icon(src=`${process.env.STATIC_FILE_SERVER}img/send-icon.png`)
+         img.logo-card(src=`${process.env.STATIC_FILE_SERVER}img/favicon.png`)
          label Card number:
          input.input.cardnumber#cardnumber(type='text' placeholder='1234 5678 9101 1121' minlength='10' required)
          label Name:
@@ -29,7 +29,7 @@ html
             p Email : 
             h3.email= session.customer_email
          .col
-            img.product_image(src=`/img/tours/${session.item.image}` alt=`${session.item.name}`)
+            img.product_image(src=`${process.env.STATIC_FILE_SERVER}img/tours/${session.item.image}` alt=`${session.item.name}`)
             br
             h3.bought-items #{session.item.name}
             p.bought-items.description #{session.item.description}
