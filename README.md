@@ -1,6 +1,7 @@
 <div align="center">
 
-  <img src="https://github.com/LucasAndria/tours-mada/blob/main/public/img/logo-green-round.png" alt="Tours Mada" width="200">
+<a href="https://tours-mada.deta.dev/"><img src="https://github.com/LucasAndria/tours-mada/blob/main/public/img/logo-green-round.png" alt="Tours Mada" width="200"></a>
+
   <h1>Tours Mada</h1>
   
   <p>
