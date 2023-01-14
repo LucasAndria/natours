@@ -21,27 +21,27 @@ module.exports = class Email {
           pass: process.env.SENDINGBLUE_PASSWORD
         }
       });
-
-      // Gmail
-      // return nodemailer.createTransport({
-      //   service: 'Gmail',
-      //   auth: {
-      //     user: process.env.GMAIL_USERNAME,
-      //     pass: process.env.GMAIL_PASSWORD
-      //   }
-      // });
     }
 
-    // 1) Create a transporter
+    // // 1) Create a transporter
+    // return nodemailer.createTransport({
+    //   //servie: 'Gmail',
+    //   host: process.env.EMAIL_HOST,
+    //   port: process.env.EMAIL_PORT,
+    //   auth: {
+    //     user: process.env.EMAIL_USERNAME,
+    //     pass: process.env.EMAIL_PASSWORD
+    //   }
+    //   // Activate in gmail "less secure app" option
+    // });
+
     return nodemailer.createTransport({
-      //servie: 'Gmail',
-      host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
+      host: process.env.SENDINGBLUE_HOST,
+      port: process.env.SENDINGBLUE_PORT,
       auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD
+        user: process.env.SENDINGBLUE_USERNAME,
+        pass: process.env.SENDINGBLUE_PASSWORD
       }
-      // Activate in gmail "less secure app" option
     });
   }
 
