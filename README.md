@@ -31,6 +31,8 @@
 <p>
   An awesome tour booking site built on top of <a href="https://nodejs.org/en/" target="_blank">NodeJS</a>.
   You can use it as an <a href="https://tours-mada.deta.dev/api/v1/tours/">API</a>.
+</p>
+<p>
   The API <a href="https://documenter.getpostman.com/view/20385594/2s8YmGW6hy">documentation</a> on POSTMAN.
 </p>
 
